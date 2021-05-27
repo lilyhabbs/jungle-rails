@@ -17,6 +17,10 @@ class CartsController < ApplicationController
     redirect_to :back
   end
 
+  def empty?
+    self.length == 0
+  end
+
   private
 
   def modify_cart_delta(product_id, delta)
