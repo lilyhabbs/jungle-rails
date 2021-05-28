@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/register'
+      redirect_to '/register',
+        error: user.errors.full_messages
     end
   end
 

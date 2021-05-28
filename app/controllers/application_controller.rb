@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  add_flash_types :error
+
   private
 
   def cart
