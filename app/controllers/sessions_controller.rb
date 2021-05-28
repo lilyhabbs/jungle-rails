@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
     # If user's login doesn't work, send them back to the login form.
-      redirect_to '/login'
+      redirect_to '/login',
+        error: "Your email and/or password do not match our records. Please try again."
     end
 
   end
