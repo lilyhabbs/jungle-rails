@@ -10,24 +10,31 @@
         <% error.each do |msg| %>   
           <li><%= msg %></li>   
         <% end %>      
-      </ul>   
+      </ul>
     </div>
   <% end %>
+  
+  <p><em><strong>NOTE:</strong> All fields must be filled in.</em></p>
 
   <div class="form-group">
-    <label>Name:</label>
-    <%= f.text_field :name, class: 'form-control' %>
+    <label>First name:</label>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label>Last name:</label>
+    <%= f.text_field :last_name, class: 'form-control' %>
   </div>
   <div class="form-group">
     <label>Email:</label>
     <%= f.text_field :email, class: 'form-control'  %>
   </div>
   <div class="form-group">
-  <label>Password:</label>
+    <label>Password:</label>
     <%= f.password_field :password, class: 'form-control'  %>
+    <p class="help-block">Password must be at least 8 characters.</p>
   </div>
   <div class="form-group">
-  <label>Password confirmation:</label>
+    <label>Password confirmation:</label>
     <%= f.password_field :password_confirmation, class: 'form-control'  %>
   </div>
     <%= f.submit "Submit", class: 'btn btn-primary' %>
