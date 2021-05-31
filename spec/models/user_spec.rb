@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Validations' do
     before (:each) do
-      @user = User.create first_name: 'Clark', last_name: 'Kent', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
+      @user = User.create first_name: 'Clark', last_name: 'Kent', email: 'im@superhero.com', password: 'superman', password_confirmation: 'superman'
       @user2 = User.create first_name: 'Bruce', last_name: 'Wayne', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
     end
 
@@ -52,6 +52,19 @@ RSpec.describe User, type: :model do
     it 'is not valid if last_name field is empty' do
       @user.last_name = nil
       expect(@user).to_not be_valid
+    end
+  end
+
+  describe '.authenticate_with_credentials' do
+    
+    it 'should return the user if email and password are valid' do
+      valid_user = User.authenticate_with_credentials('im@superhero.com', 'superman')
+      expect(valid_user).to eq(@user)
+    end
+
+    it 'should return nil if email and password are not valid' do
+      invalid_user = User.authenticate_with_credentials('im@superhero.com', 'mypassword')
+      expect(invalid_user).to eq(nil)
     end
   end
 end
