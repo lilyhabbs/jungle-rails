@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Validations' do
     before (:each) do
-      @user = User.create name: 'Clark Kent', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
-      @user2 = User.create name: 'Bruce Wayne', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
+      @user = User.create first_name: 'Clark', last_name: 'Kent', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
+      @user2 = User.create first_name: 'Bruce', last_name: 'Wayne', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
     end
 
     it 'is valid if all fields validated' do
@@ -44,8 +44,13 @@ RSpec.describe User, type: :model do
     end
 
     # validates :name
-    it 'is not valid if name field is empty' do
-      @user.name = nil
+    it 'is not valid if first_name field is empty' do
+      @user.first_name = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'is not valid if last_name field is empty' do
+      @user.last_name = nil
       expect(@user).to_not be_valid
     end
   end
