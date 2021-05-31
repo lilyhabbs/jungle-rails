@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  before (:each) do
+    @user = User.create first_name: 'Clark', last_name: 'Kent', email: 'im@superhero.com', password: 'superman', password_confirmation: 'superman'
+    @user2 = User.create first_name: 'Bruce', last_name: 'Wayne', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
+  end
+
   describe 'Validations' do
-    before (:each) do
-      @user = User.create first_name: 'Clark', last_name: 'Kent', email: 'im@superhero.com', password: 'superman', password_confirmation: 'superman'
-      @user2 = User.create first_name: 'Bruce', last_name: 'Wayne', email: 'im@superhero.com', password: 'mypassword', password_confirmation: 'mypassword'
-    end
 
     it 'is valid if all fields validated' do
       expect(@user).to be_valid
@@ -64,7 +65,18 @@ RSpec.describe User, type: :model do
 
     it 'should return nil if email and password are not valid' do
       invalid_user = User.authenticate_with_credentials('im@superhero.com', 'mypassword')
-      expect(invalid_user).to eq(nil)
+      expect(invalid_user).to be_nil
     end
+
+    it 'should successfully authenticate even if there are spaces before/after email address' do
+      valid_user = User.authenticate_with_credentials(' im@superhero.com ', 'superman')
+      expect(valid_user).to eq(@user)
+    end
+
+    it 'should successfully authenticate regardless of case in email address' do
+      valid_user = User.authenticate_with_credentials('IM@superhero.COM', 'superman')
+      expect(valid_user).to eq(@user)
+    end
+
   end
 end
