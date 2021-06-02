@@ -4,20 +4,20 @@ An e-commerce web app that allows users to purchase products online. Admins are 
 
 ## Screenshots
 
+**Home page / full product listing**
 !["Homepage"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/homepage.png)
-*Home page / full product listing*
 
+**Registration page with validation errors**
 !["Registration"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/registration_with_error.png)
-*Registration page with validation errors*
 
+**Stripe payment screen**
 !["Payment"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/payment.png)
-*Stripe payment screen*
 
+**Order confirmation page**
 !["Registration"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/order_confirmation.png)
-*Order confirmation page*
 
+**Admin section: listing of all products**
 !["Admin > Products"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/admin_products.png)
-*Admin section: listing of all products*
 
 ## Setup
 
@@ -26,7 +26,7 @@ An e-commerce web app that allows users to purchase products online. Admins are 
 3. Create `config/secrets.yml` by copying `config/secrets.example.yml`
 4. Run `bin/rake db:reset` to create, load and seed db
 5. Create .env file based on .env.example
-6. Sign up for a Stripe account
+6. Sign up for a [Stripe account](https://stripe.com/en-ca)
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 
@@ -39,7 +39,7 @@ An e-commerce web app that allows users to purchase products online. Admins are 
 
 ## Stripe Testing
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+Use Credit Card # 4111 1111 1111 1111 for testing success scenarios. Use a valid expiration date in the future and any random CVC number, to create a successful transaction.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
