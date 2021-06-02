@@ -7,7 +7,7 @@ An e-commerce web app that allows users to purchase products online. Admins are 
 !["Homepage"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/homepage.png)
 *Home page / full product listing*
 
-!["Registration"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/login_with_error.png)
+!["Registration"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/registration_with_error.png)
 *Registration page with validation errors*
 
 !["Payment"](https://github.com/lilyhabbs/jungle-rails/blob/master/docs/payment.png)
